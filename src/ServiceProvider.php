@@ -13,7 +13,9 @@ class ServiceProvider extends LaravelServiceProvider
 	 */
 	public function register()
 	{
-		//
+		$this->mergeConfigFrom(
+			__DIR__.'/../config/blkauth.php', 'blkauth'
+		);
 	}
 
 	/**
@@ -23,6 +25,8 @@ class ServiceProvider extends LaravelServiceProvider
 	 */
 	public function boot()
 	{
-		//
+		$this->publishes([
+			__DIR__.'/../config/blkauth.php' => config_path('blkauth.php'),
+		], 'config');
 	}
 }
