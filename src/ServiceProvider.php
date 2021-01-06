@@ -2,6 +2,7 @@
 
 namespace BlkSheepIo\LaravelAuth;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
 class ServiceProvider extends LaravelServiceProvider
@@ -13,6 +14,7 @@ class ServiceProvider extends LaravelServiceProvider
 	 */
 	public function register()
 	{
+		// Merge configurations
 		$this->mergeConfigFrom(
 			__DIR__.'/../config/blkauth.php', 'blkauth'
 		);
@@ -25,6 +27,11 @@ class ServiceProvider extends LaravelServiceProvider
 	 */
 	public function boot()
 	{
+		// Add middleware
+		$kernel = $this->app->make(Kernel::class);
+		$kernel->pushMiddleware(Middleware::class);
+
+		// Publish files
 		$this->publishes([
 			__DIR__.'/../config/blkauth.php' => config_path('blkauth.php'),
 		], 'config');

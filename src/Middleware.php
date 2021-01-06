@@ -5,7 +5,7 @@ namespace BlkSheepIo\LaravelAuth;
 use Closure;
 use Illuminate\Http\Request;
 
-class BeforeMiddleware
+class Middleware
 {
 	public function handle(Request $request, Closure $next)
 	{
