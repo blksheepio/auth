@@ -1,2 +1,2 @@
-# auth
-Laravel authenticatio packagen for micro services
+# Laravel Auth
+Laravel authentication package for micro services.
