@@ -2,6 +2,7 @@
     "name": "blksheepio/laravel-auth",
     "description": "Laravel authentication package for micro services",
     "type": "library",
+    "license": "MIT",
     "require": {},
     "autoload": {
         "psr-4": {
